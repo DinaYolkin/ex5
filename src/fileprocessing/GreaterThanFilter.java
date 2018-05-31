@@ -13,7 +13,7 @@ public class GreaterThanFilter implements FilterStrategy {
             double threhold = Double.parseDouble(values[1]);
         }catch (NumberFormatException e){
             // TODO add line
-            System.err.println("warning in line ADDLINE");
+            System.err.println("Warning in line ADDLINE");
         }
         return false;
 
