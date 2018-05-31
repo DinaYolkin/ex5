@@ -2,12 +2,15 @@ package fileprocessing;
 
 import java.io.File;
 
+/**
+ * This class implement
+ */
 public class AllFilter implements FilterStrategy{
-
-    @Override
-    public boolean isValidInput(String filterLine) {
-        return false;
-    }
+	/**
+	 *
+	 * @param file
+	 * @return
+	 */
 
     @Override
     public boolean passedFilter(File file) {
