@@ -1,5 +1,9 @@
 package fileprocessing;
 
+
+import fileprocessing.filters.FilterStrategy;
+import fileprocessing.orders.OrderStrategy;
+
 import java.util.logging.Filter;
 
 /**
