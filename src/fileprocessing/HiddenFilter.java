@@ -2,7 +2,7 @@ package fileprocessing;
 
 import java.io.File;
 
-public class ContainsFilter implements FilterStrategy {
+public class HiddenFilter implements FilterStrategy {
     @Override
     public boolean isValidInput(String filterLine) {
         return false;
