@@ -6,6 +6,7 @@ import java.io.File;
  * A class implements a filter that filter files that contains a specific value in their name.
  */
 public class ContainsFilter implements FilterStrategy {
+
 	private boolean isNot;
 	private String value;
 
@@ -18,7 +19,9 @@ public class ContainsFilter implements FilterStrategy {
 	public boolean passedFilter(File file) {
 
 		String fileName = file.getName();
-
-		return false;
+		if (isNot) {
+			return !fileName.contains(value);
+		}
+		return fileName.contains(value);
 	}
 }
