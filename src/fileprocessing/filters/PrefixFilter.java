@@ -12,9 +12,12 @@ public class PrefixFilter implements FilterStrategy {
 		this.value = value;
 	}
 
-
 	@Override
 	public boolean passedFilter(File file) {
-		return false;
+		String fileName = file.getName();
+		if (isNot) {
+			return !value.startsWith(fileName);
+		}
+		return value.startsWith(fileName);
 	}
 }
