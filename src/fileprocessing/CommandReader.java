@@ -24,8 +24,5 @@ public class CommandReader {
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
-
     }
-
-
 }

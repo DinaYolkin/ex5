@@ -18,7 +18,7 @@ public class GreaterThanFilter implements FilterStrategy {
 
 	@Override
 	public boolean passedFilter(File file) {
-		long fileSize = file.getTotalSpace();
+		long fileSize = file.getTotalSpace() / BYTES_TO_K_BYTES;
 		if (isNot) {
 			return fileSize <= lowerBound;
 		}
