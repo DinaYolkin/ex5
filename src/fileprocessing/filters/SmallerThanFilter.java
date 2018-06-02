@@ -2,7 +2,7 @@ package fileprocessing.filters;
 
 import java.io.File;
 
-public class SmallerThanFilter implements FilterStrategy {
+public class SmallerThanFilter extends Filter {
 
 	private boolean isNot;
 	private double lowerBound;

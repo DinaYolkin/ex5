@@ -5,7 +5,7 @@ import java.io.File;
 /**
  * This class implements a class that filters files if their size is greater than some value.
  */
-public class GreaterThanFilter implements FilterStrategy {
+public class GreaterThanFilter extends Filter {
 
 	private boolean isNot;
 	private double lowerBound;

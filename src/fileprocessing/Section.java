@@ -1,30 +1,47 @@
 package fileprocessing;
 
 
-import fileprocessing.filters.FilterStrategy;
-import fileprocessing.orders.OrderStrategy;
+import fileprocessing.filters.Filter;
+import fileprocessing.orders.Order;
 
-import java.util.logging.Filter;
+import java.io.File;
+
+import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * A section class that represents a section that contains filtering and ordering strategy.
  */
 public class Section {
 
-	FilterStrategy filterSec;
-	OrderStrategy OrderSec;
+	private Filter filter;
+	private Comparator<File> order;
 
-	public Section(FilterStrategy filter, OrderStrategy order) {
-		this.filterSec = filter;
-		this.OrderSec = order;
-
+	public Section(Filter filter, Order order) {
+		this.filter = filter;
+		this.order = order;
 	}
 
-	public FilterStrategy getFilterSec() {
-		return filterSec;
+	public void printAllFilterdFilesByOrder(ArrayList<File> files) {
+
+
+		// Todo: add here warning print.
+
+		ArrayList<File> filteredFiles = new ArrayList<>();
+		files.sort(getOrderSec());
+
+		for (File file : files) {
+			if (filter.passedFilter(file)) {
+				filteredFiles.add(file);
+			}
+		}
 	}
 
-	public OrderStrategy getOrderSec() {
-		return OrderSec;
+	public Filter getFilterSec() {
+		return filter;
+	}
+
+	public Comparator<File> getOrderSec() {
+		return order;
 	}
 }

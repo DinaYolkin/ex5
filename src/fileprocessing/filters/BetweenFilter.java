@@ -5,7 +5,7 @@ import java.io.File;
 /**
  * This class implements filtering of values in a specific range.
  */
-public class BetweenFilter implements FilterStrategy {
+public class BetweenFilter extends Filter {
 
 	private boolean isNot;
 	private double lowerBound;

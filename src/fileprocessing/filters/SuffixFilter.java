@@ -5,7 +5,7 @@ import java.io.File;
 /**
  *
  */
-public class SuffixFilter implements FilterStrategy {
+public class SuffixFilter extends Filter {
 	private boolean isNot;
 	private String suffix;
 

@@ -5,7 +5,7 @@ import java.io.File;
 /**
  * A
  */
-public class FileNameFilter implements FilterStrategy {
+public class FileNameFilter extends Filter {
 	private String value;
 	private boolean isNot;
 

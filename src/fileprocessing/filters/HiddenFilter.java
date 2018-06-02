@@ -5,7 +5,7 @@ import java.io.File;
 /**
  * a class that represents file filtering by it's visibility in the directory.
  */
-public class HiddenFilter implements FilterStrategy {
+public class HiddenFilter extends Filter {
 	private boolean isNot;
 
 	HiddenFilter(boolean isNot) {

@@ -2,7 +2,7 @@ package fileprocessing.filters;
 
 import java.io.File;
 
-public class PrefixFilter implements FilterStrategy {
+public class PrefixFilter extends Filter {
 
 	private boolean isNot;
 	private String value;

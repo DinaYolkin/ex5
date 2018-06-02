@@ -2,7 +2,7 @@ package fileprocessing.filters;
 
 import java.io.File;
 
-public class ExecutableFilter implements FilterStrategy {
+public class ExecutableFilter extends Filter {
 	private boolean isNot;
 
 	ExecutableFilter(boolean isNot) {

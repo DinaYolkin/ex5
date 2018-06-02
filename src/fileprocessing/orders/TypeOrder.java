@@ -5,7 +5,7 @@ import java.io.File;
 /**
  * A class that implements ordering by file type.
  */
-public class TypeOrder implements OrderStrategy {
+public class TypeOrder extends Order {
 
 	private boolean isReversed;
 
@@ -14,8 +14,8 @@ public class TypeOrder implements OrderStrategy {
 	}
 
 
-	@Override
-	public void orderFiles() {
-
+	public int compare(File file1, File file2) {
+		return 0;
 	}
+
 }

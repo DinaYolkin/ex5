@@ -6,7 +6,7 @@ import java.io.File;
 /**
  * This class implement a filter that return all the files.
  */
-public class AllFilter implements FilterStrategy {
+public class AllFilter extends Filter {
 
 
 	@Override

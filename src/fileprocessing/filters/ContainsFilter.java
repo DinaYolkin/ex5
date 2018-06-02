@@ -5,7 +5,7 @@ import java.io.File;
 /**
  * A class implements a filter that filter files that contains a specific value in their name.
  */
-public class ContainsFilter implements FilterStrategy {
+public class ContainsFilter extends Filter {
 
 	private boolean isNot;
 	private String value;

@@ -5,7 +5,7 @@ import java.io.File;
 /**
  * A class
  */
-public abstract class FilterStrategy {
+public abstract class Filter {
 
 	public final int BYTES_TO_K_BYTES = 1024;
 

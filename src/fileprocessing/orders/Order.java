@@ -8,8 +8,8 @@ import java.util.Comparator;
  * A class that implements an ordering strategy.
  */
 public abstract class Order implements Comparator<File> {
-	protected final int FIRST_SMALLER = -1;
-	protected final int EQUAL = 0;
-	protected final int FIRST_GREATER = 1;
+	final int FIRST_SMALLER = -1;
+	final int EQUAL = 0;
+	final int FIRST_GREATER = 1;
 
 }
