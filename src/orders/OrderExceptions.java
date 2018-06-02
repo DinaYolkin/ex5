@@ -9,6 +9,5 @@ public class OrderExceptions extends Exception {
     }
     OrderExceptions(String msg_error){
         super(msg_error);
-
     }
 }

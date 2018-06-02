@@ -1,11 +1,11 @@
 package filters;
 
-public class ExceptionNoSuchFilter extends FilterExceptions{
+public class ExceptionNoSuchFilter extends FilterExceptions {
 
-    private static final String MSG_NO_SUCH_FILTER_NAME = "ERROR: Exception no such Filter name";
+	private static final String MSG_NO_SUCH_FILTER_NAME = "ERROR: Exception no such Filter name";
 
-    ExceptionNoSuchFilter(){
-        super(MSG_NO_SUCH_FILTER_NAME);
+	public ExceptionNoSuchFilter() {
+		super(MSG_NO_SUCH_FILTER_NAME);
 
-    }
+	}
 }

@@ -1,4 +1,4 @@
-package fileprocessing;
+package filesprocessing;
 
 public class SectionException extends Exception {
 
