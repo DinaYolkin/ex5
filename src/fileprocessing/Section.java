@@ -2,6 +2,7 @@ package fileprocessing;
 
 import java.io.File;
 
+
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -10,18 +11,22 @@ import java.util.Comparator;
  */
 public class Section {
 
-	private fileprocessing.filters.Filter filter;
+	private filters.Filter filter;
 	private Comparator<File> order;
+	private ArrayList<Integer> warningsLines;
 
-	public Section(fileprocessing.filters.Filter filter, fileprocessing.orders.Order order) {
+	public Section(filters.Filter filter, Comparator<File> order, ArrayList<Integer> warningsLines) {
 		this.filter = filter;
 		this.order = order;
+		this.warningsLines = warningsLines;
 	}
 
-	public void printAllFilterdFilesByOrder(ArrayList<File> files) {
+	public void printAllFilteredFilesByOrder(ArrayList<File> files) {
 
+		for (Integer line : warningsLines) {
+			System.out.println("Warning in line " + line);
+		}
 
-		// Todo: add here warning print.
 
 		ArrayList<File> filteredFiles = new ArrayList<>();
 		files.sort(getOrder());
@@ -31,16 +36,19 @@ public class Section {
 				filteredFiles.add(file);
 			}
 		}
+
+		for (File file : filteredFiles) {
+			System.out.println(file.getName());
+		}
 	}
 
-	public fileprocessing.filters.Filter getFilterSec() {
+	public filters.Filter getFilterSec() {
 		return filter;
 	}
 
 	public Comparator<File> getOrder() {
 		return order;
 	}
-
 
 
 }
