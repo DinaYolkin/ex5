@@ -1,9 +1,5 @@
 package fileprocessing;
 
-
-import fileprocessing.filters.Filter;
-import fileprocessing.orders.Order;
-
 import java.io.File;
 
 import java.util.ArrayList;
@@ -14,10 +10,10 @@ import java.util.Comparator;
  */
 public class Section {
 
-	private Filter filter;
+	private fileprocessing.filters.Filter filter;
 	private Comparator<File> order;
 
-	public Section(Filter filter, Order order) {
+	public Section(fileprocessing.filters.Filter filter, fileprocessing.orders.Order order) {
 		this.filter = filter;
 		this.order = order;
 	}
@@ -37,7 +33,7 @@ public class Section {
 		}
 	}
 
-	public Filter getFilterSec() {
+	public fileprocessing.filters.Filter getFilterSec() {
 		return filter;
 	}
 
