@@ -16,6 +16,10 @@ public class AbsOrder extends Order {
 
 	@Override
 	public int compare(File file1, File file2) {
+
+		if (isReversed) {
+			return file2.getName().compareTo(file1.getName());
+		}
 		return file1.getName().compareTo(file2.getName());
 	}
 }

@@ -1,6 +1,5 @@
 package fileprocessing.filters;
 
-
 import java.io.File;
 
 /**
@@ -8,9 +7,18 @@ import java.io.File;
  */
 public class AllFilter extends Filter {
 
+	private boolean isNot;
+
+	AllFilter(boolean isNot) {
+		this.isNot = isNot;
+	}
 
 	@Override
 	public boolean passedFilter(File file) {
-		return false;
+		if (isNot) {
+			return false;
+		}
+		return true;
+
 	}
 }

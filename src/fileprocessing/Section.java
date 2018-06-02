@@ -24,7 +24,7 @@ public class Section {
 		// Todo: add here warning print.
 
 		ArrayList<File> filteredFiles = new ArrayList<>();
-		files.sort(getOrderSec());
+		files.sort(getOrder());
 
 		for (File file : files) {
 			if (filter.passedFilter(file)) {
@@ -37,7 +37,10 @@ public class Section {
 		return filter;
 	}
 
-	public Comparator<File> getOrderSec() {
+	public Comparator<File> getOrder() {
 		return order;
 	}
+
+
+
 }

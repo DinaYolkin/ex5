@@ -6,20 +6,21 @@ import java.io.File;
  * A
  */
 public class FileNameFilter extends Filter {
-	private String value;
+	private String filterValue;
 	private boolean isNot;
 
 	FileNameFilter(String value, boolean isNot) {
 		this.isNot = isNot;
-		this.value = value;
+		this.filterValue = value;
 	}
 
 	@Override
 	public boolean passedFilter(File file) {
 		String fileName = file.getName();
+		String[] parsedFileName = parseFileName(fileName);
 		if (isNot) {
-			return !value.equals(fileName);
+			return !filterValue.equals(parsedFileName[FILE_NAME_INDEX]);
 		}
-		return value.equals(fileName);
+		return filterValue.equals(parsedFileName[FILE_NAME_INDEX]);
 	}
 }

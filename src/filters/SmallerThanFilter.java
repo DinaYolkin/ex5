@@ -7,7 +7,7 @@ public class SmallerThanFilter extends Filter {
 	private boolean isNot;
 	private double lowerBound;
 
-	SmallerThanFilter(long lowerThreshold, boolean isNot) {
+	SmallerThanFilter(double lowerThreshold, boolean isNot) {
 
 		this.isNot = isNot;
 		this.lowerBound = lowerThreshold;

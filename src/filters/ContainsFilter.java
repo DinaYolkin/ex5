@@ -24,4 +24,5 @@ public class ContainsFilter extends Filter {
 		}
 		return fileName.contains(value);
 	}
+
 }
