@@ -21,6 +21,7 @@ public class CommandReader {
 	private OrderFactory orderFactory;
 
 	public CommandReader(String addressFile) {
+
 		this.fileAddress = addressFile;
 		filterFactory = new FilterFactory();
 		orderFactory = new OrderFactory();
@@ -49,9 +50,9 @@ public class CommandReader {
 				Filter filter;
 				try {
 					filter = filterFactory.getFilter(line);
-				} catch (FilterExceptions e) {
+				} catch (ExceptionNoSuchFilter e) {
 					// catch type 2 exceptions
-					throw new ExceptionNoSuchFilter();
+					throw e;
 				}
 				// if filter is null means we have type 1 error
 				if (filter == null) {
@@ -83,8 +84,8 @@ public class CommandReader {
 				} else {
 					try {
 						order = orderFactory.getOrder(line);
-					} catch (OrderExceptions e) {
-						throw new ExceptionNoSuchOrder();
+					} catch (ExceptionNoSuchOrder e) {
+						throw e;
 					}
 				}
 				if (order == null) {

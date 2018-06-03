@@ -2,10 +2,11 @@ package orders;
 
 public class ExceptionNoSuchOrder extends OrderExceptions {
 
-    private static final String MSG_NO_SUCH_ORDER_EXCEPTION = "ERROR: filter error exception";
+	private static final String MSG_NO_SUCH_ORDER_EXCEPTION = "ERROR: no such order name: ";
 
-    public ExceptionNoSuchOrder(){
-        super(MSG_NO_SUCH_ORDER_EXCEPTION);
-    }
+	ExceptionNoSuchOrder(String orderName) {
+
+		super(MSG_NO_SUCH_ORDER_EXCEPTION + orderName);
+	}
 
 }

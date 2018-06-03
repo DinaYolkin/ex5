@@ -9,6 +9,11 @@ public class SuffixFilter extends Filter {
 	private boolean isNot;
 	private String suffix;
 
+	/**
+	 *
+	 * @param newSuffix
+	 * @param isNot indicates if the filter is negated.
+	 */
 	SuffixFilter(String newSuffix, boolean isNot) {
 		this.isNot = isNot;
 		this.suffix = newSuffix;

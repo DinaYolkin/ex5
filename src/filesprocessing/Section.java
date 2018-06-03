@@ -15,7 +15,7 @@ public class Section {
 	private Comparator<File> order;
 	private ArrayList<Integer> warningsLines;
 
-	public Section(filters.Filter filter, Comparator<File> order, ArrayList<Integer> warningsLines) {
+	public Section(filters.Filter filter, orders.Order order, ArrayList<Integer> warningsLines) {
 		this.filter = filter;
 		this.order = order;
 		this.warningsLines = warningsLines;

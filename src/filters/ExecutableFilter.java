@@ -2,9 +2,15 @@ package filters;
 
 import java.io.File;
 
+/**
+ * A class
+ */
 public class ExecutableFilter extends Filter {
 	private boolean isNot;
 
+	/** Creates a class that
+	 * @param isNot indicates if the filter is negated.
+	 */
 	ExecutableFilter(boolean isNot) {
 		this.isNot = isNot;
 	}

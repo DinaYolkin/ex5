@@ -7,12 +7,14 @@ public class OrderFactory {
     private static final String NAME_TYPE = "type";
     private static final String NAME_SIZE = "size";
     private static final int REVERSE_INDEX = 1;
+    private static final int ORDER_NAME_INDEX = 0;
     private String[] orderLineArray;
 
     public Order getOrder(String orderLine) throws OrderExceptions {
         orderLineArray = orderLine.split("#");
+        String orderName = orderLineArray[ORDER_NAME_INDEX];
         boolean isReverse = checkIfReverse();
-        switch (orderLine) {
+        switch (orderName) {
             case NAME_ABS:
                 return new AbsOrder(isReverse);
             case NAME_TYPE:
@@ -20,7 +22,7 @@ public class OrderFactory {
             case NAME_SIZE:
                 return new SizeOrder(isReverse);
             default:
-                throw new ExceptionNoSuchOrder();
+                throw new ExceptionNoSuchOrder(orderName);
         }
 
     }

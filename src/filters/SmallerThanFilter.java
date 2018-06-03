@@ -7,6 +7,11 @@ public class SmallerThanFilter extends Filter {
 	private boolean isNot;
 	private double lowerBound;
 
+	/**
+	 *
+	 * @param lowerThreshold
+	 * @param isNot indicates if the filter is negated.
+	 */
 	SmallerThanFilter(double lowerThreshold, boolean isNot) {
 
 		this.isNot = isNot;

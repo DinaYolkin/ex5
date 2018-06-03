@@ -8,6 +8,10 @@ import java.io.File;
 public class HiddenFilter extends Filter {
 	private boolean isNot;
 
+	/**
+	 *
+	 * @param isNot indicates if the filter is negated.
+	 */
 	HiddenFilter(boolean isNot) {
 		this.isNot = isNot;
 	}

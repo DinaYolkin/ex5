@@ -23,6 +23,9 @@ public class FilterFactory {
     private String[] lineValArray;
 
     public Filter getFilter(String filterLine) throws FilterExceptions {
+        if (filterLine == null){
+            throw new ExceptionNoFilterLine();
+        }
         lineValArray = filterLine.split("#");
         String filterName = lineValArray[FILTER_NAME];
         Boolean checkNot;
@@ -90,7 +93,7 @@ public class FilterFactory {
                 checkNot = isThereNot(lineValArray[NOT_INDEX - 1]);
                 return new AllFilter(checkNot);
             default:
-                throw new ExceptionNoSuchFilter();
+                throw new ExceptionNoSuchFilter(filterName);
         }
     }
 

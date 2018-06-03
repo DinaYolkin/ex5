@@ -10,6 +10,10 @@ public class ContainsFilter extends Filter {
 	private boolean isNot;
 	private String value;
 
+	/**
+	 * @param value The value the file name has to contain to be filtered.
+	 * @param isNot indicates if the filter is negated.
+	 */
 	ContainsFilter(String value, boolean isNot) {
 		this.isNot = isNot;
 		this.value = value;

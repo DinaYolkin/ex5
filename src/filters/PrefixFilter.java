@@ -7,6 +7,11 @@ public class PrefixFilter extends Filter {
 	private boolean isNot;
 	private String value;
 
+	/**
+	 *
+	 * @param filterValue
+	 * @param isNot indicates if the filter is negated.
+	 */
 	PrefixFilter(String filterValue, boolean isNot) {
 		this.isNot = isNot;
 		this.value = filterValue;

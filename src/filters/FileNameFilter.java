@@ -3,12 +3,16 @@ package filters;
 import java.io.File;
 
 /**
- * A
+ * A class that filters the
  */
 public class FileNameFilter extends Filter {
 	private String filterValue;
 	private boolean isNot;
 
+	/**
+	 * @param value The string we want to filter by.
+	 * @param isNot indicates if the filter is negated.
+	 */
 	FileNameFilter(String value, boolean isNot) {
 		this.isNot = isNot;
 		this.filterValue = value;

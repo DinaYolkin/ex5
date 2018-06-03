@@ -3,7 +3,7 @@ package filters;
 import java.io.File;
 
 /**
- * This class implements filtering of values in a specific range.
+ * This is a filter object that filters files by size in a specific range.
  */
 public class BetweenFilter extends Filter {
 
@@ -11,6 +11,13 @@ public class BetweenFilter extends Filter {
 	private double lowerBound;
 	private double upperBound;
 
+	/**
+	 * Creates a filter object with given params.
+	 *
+	 * @param lowerThreshold The lower bound for the file size we want to filter.
+	 * @param upperThreshold The upper bound for the file size we want to filter.
+	 * @param isNot          indicates if the filter is negated.
+	 */
 	BetweenFilter(double lowerThreshold, double upperThreshold, boolean isNot) {
 
 		this.lowerBound = lowerThreshold;
