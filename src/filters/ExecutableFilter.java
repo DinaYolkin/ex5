@@ -6,9 +6,12 @@ import java.io.File;
  * A class
  */
 public class ExecutableFilter extends Filter {
+	public String filterName = "executable";
 	private boolean isNot;
 
-	/** Creates a class that
+	/**
+	 * Creates a class that
+	 *
 	 * @param isNot indicates if the filter is negated.
 	 */
 	ExecutableFilter(boolean isNot) {
@@ -21,5 +24,9 @@ public class ExecutableFilter extends Filter {
 			return !file.canExecute();
 		}
 		return file.canExecute();
+	}
+	//TODO delete
+	public String getName(){
+		return this.filterName;
 	}
 }

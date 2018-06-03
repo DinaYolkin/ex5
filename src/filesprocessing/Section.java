@@ -1,7 +1,9 @@
 package filesprocessing;
 
-import java.io.File;
+import filters.Filter;
+import orders.Order;
 
+import java.io.File;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -11,22 +13,29 @@ import java.util.Comparator;
  */
 public class Section {
 
-	private filters.Filter filter;
+	private Filter filter;
 	private Comparator<File> order;
 	private ArrayList<Integer> warningsLines;
 
-	public Section(filters.Filter filter, orders.Order order, ArrayList<Integer> warningsLines) {
+	/**
+	 * @param filter        The filter object of this section.
+	 * @param order         The order object of this section
+	 * @param warningsLines An array that contains the lines in which warning occurred.
+	 */
+	public Section(Filter filter, Order order, ArrayList<Integer> warningsLines) {
 		this.filter = filter;
 		this.order = order;
 		this.warningsLines = warningsLines;
 	}
 
+	/**
+	 * @param files the files we want to filter and print.
+	 */
 	public void printAllFilteredFilesByOrder(ArrayList<File> files) {
 
 		for (Integer line : warningsLines) {
-			System.out.println("Warning in line " + line);
+			System.err.println("Warning in line " + line);
 		}
-
 
 		ArrayList<File> filteredFiles = new ArrayList<>();
 		files.sort(getOrder());
@@ -42,10 +51,9 @@ public class Section {
 		}
 	}
 
-	public filters.Filter getFilterSec() {
-		return filter;
-	}
-
+	/**
+	 * @return the order object of this section.
+	 */
 	public Comparator<File> getOrder() {
 		return order;
 	}

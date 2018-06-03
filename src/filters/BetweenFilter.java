@@ -7,6 +7,7 @@ import java.io.File;
  */
 public class BetweenFilter extends Filter {
 
+	public String filterName = "between";
 	private boolean isNot;
 	private double lowerBound;
 	private double upperBound;
@@ -28,11 +29,15 @@ public class BetweenFilter extends Filter {
 
 	@Override
 	public boolean passedFilter(File file) {
-		double fileSize = file.getTotalSpace() / BYTES_TO_K_BYTES;
+		double fileSize = ((double) file.length()) / BYTES_TO_K_BYTES;
 		if (isNot) {
 			return (fileSize < lowerBound && fileSize > upperBound);
 		}
 		return (fileSize >= lowerBound && fileSize <= upperBound);
+	}
+	//TODO delete
+	public String getName(){
+		return this.filterName;
 	}
 }
 

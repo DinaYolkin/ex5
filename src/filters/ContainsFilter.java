@@ -7,6 +7,7 @@ import java.io.File;
  */
 public class ContainsFilter extends Filter {
 
+	public String filterName = "contains";
 	private boolean isNot;
 	private String value;
 
@@ -27,6 +28,11 @@ public class ContainsFilter extends Filter {
 			return !fileName.contains(value);
 		}
 		return fileName.contains(value);
+	}
+
+	//TODO delete
+	public String getName(){
+		return this.filterName;
 	}
 
 }

@@ -6,17 +6,17 @@ import java.io.File;
  *
  */
 public class SuffixFilter extends Filter {
+	public String filterName = "suffix";
 	private boolean isNot;
 	private String suffix;
 
 	/**
-	 *
-	 * @param newSuffix
-	 * @param isNot indicates if the filter is negated.
+	 * @param filterSuffix The file suffix we want to filter by.
+	 * @param isNot        indicates if the filter is negated.
 	 */
-	SuffixFilter(String newSuffix, boolean isNot) {
+	SuffixFilter(String filterSuffix, boolean isNot) {
 		this.isNot = isNot;
-		this.suffix = newSuffix;
+		this.suffix = filterSuffix;
 	}
 
 	@Override
@@ -26,5 +26,10 @@ public class SuffixFilter extends Filter {
 			return !fileName.endsWith(suffix);
 		}
 		return fileName.endsWith(suffix);
+	}
+
+	//TODO delete
+	public String getName() {
+		return this.filterName;
 	}
 }

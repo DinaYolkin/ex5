@@ -2,6 +2,8 @@ package orders;
 
 import java.io.File;
 
+import filesprocessing.FileNameProcessor;
+
 /**
  * A class that implements ordering by file type.
  */
@@ -19,8 +21,8 @@ public class TypeOrder extends Order {
 		String file1Name = file1.getName();
 		String file2Name = file2.getName();
 
-		String[] parsedFile1Name = parseFileName(file1Name);
-		String[] parsedFile2Name = parseFileName(file2Name);
+		String[] parsedFile1Name = FileNameProcessor.parseFileName(file1Name);
+		String[] parsedFile2Name = FileNameProcessor.parseFileName(file2Name);
 
 		int comparison;
 

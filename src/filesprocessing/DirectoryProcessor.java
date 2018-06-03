@@ -6,14 +6,15 @@ import orders.OrderExceptions;
 
 import java.io.File;
 import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class DirectoryProcessor {
-	final static int ERROR_EXIT_CODE = -1;
-	final static int NUMBER_OF_ARGS = 2;
-	final static int SOURCE_DIR_INDEX = 0;
-	final static int COMMAND_FILE_INDEX = 1;
+	private final static int ERROR_EXIT_CODE = -1;
+	private final static int NUMBER_OF_ARGS = 2;
+	private final static int SOURCE_DIR_INDEX = 0;
+	private final static int COMMAND_FILE_INDEX = 1;
 
 	public static void main(String[] args) throws IOException {
 
@@ -27,7 +28,18 @@ public class DirectoryProcessor {
 			File directory = new File(sourceDir);
 			File[] files = directory.listFiles();
 
-			ArrayList<File> allFiles = new ArrayList<>(Arrays.asList(files));
+
+			if (files == null) {
+				throw new IOException();
+			}
+
+			ArrayList<File> allFiles = new ArrayList<>();
+
+			for (File file : files) {
+				if (file.isFile()) {
+					allFiles.add(file);
+				}
+			}
 
 			CommandReader commandReader = new CommandReader(commandFile);
 

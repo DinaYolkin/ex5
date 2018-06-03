@@ -2,7 +2,7 @@ package filesprocessing;
 
 import filters.*;
 import orders.*;
-import filters.ExceptionNoSuchFilter;
+
 
 import java.io.*;
 import java.util.ArrayList;
@@ -15,6 +15,7 @@ public class CommandReader {
 	private static final String NEXT_SECTION = "FILTER";
 	private static final String DEFAULT_ORDER = "abs";
 	private static final String DEFAULT_FILTER = "all";
+	private static final String FILTER_INDICATOR = "FILTER";
 	private BufferedReader readFile;
 	private String fileAddress;
 	private FilterFactory filterFactory;
@@ -39,13 +40,12 @@ public class CommandReader {
 				Section section;
 				ArrayList<Integer> warningsLines = new ArrayList<>();
 				// filter handling
-				if (!line.equals("FILTER")) {
+				if (!line.equals(FILTER_INDICATOR)) {
 					//TODO if this is the way?
 					throw new SectionException(ERROR_NO_FILTER_LINE);
 				}
 				line = readFile.readLine();
 				numLine++;
-
 
 				Filter filter;
 				try {
@@ -62,6 +62,7 @@ public class CommandReader {
 
 				line = readFile.readLine();
 				numLine++;
+
 
 				// order handling
 

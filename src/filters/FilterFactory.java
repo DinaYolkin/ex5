@@ -20,15 +20,16 @@ public class FilterFactory {
     private static final int SECOND_PARAM = 2;
     private static final String NOT_SIGN = "NOT";
 
+
     private String[] lineValArray;
 
     public Filter getFilter(String filterLine) throws FilterExceptions {
-        if (filterLine == null){
+        if (filterLine == null) {
             throw new ExceptionNoFilterLine();
         }
         lineValArray = filterLine.split("#");
         String filterName = lineValArray[FILTER_NAME];
-        Boolean checkNot;
+        Boolean checkNot = false;
         Double numVal;
         Boolean yesOrNo;
         switch (filterName) {
@@ -37,60 +38,85 @@ public class FilterFactory {
                     return null;
                 }
                 numVal = Double.parseDouble(lineValArray[FILTER_PARAM]);
-                checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                if (lineValArray.length > 2) {
+                    checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                }
                 return new GreaterThanFilter(numVal, checkNot);
             case NAME_BETWEEN:
-                if (!isValidBetweenParam()) {
+                if ( lineValArray.length < 3 || !isValidBetweenParam()) {
                     return null;
                 }
                 numVal = Double.parseDouble(lineValArray[FILTER_PARAM]);
                 Double secondNumVal = Double.parseDouble(lineValArray[SECOND_PARAM]);
                 // the between filter get NOT at the 3 index
-                checkNot = isThereNot(lineValArray[NOT_INDEX + 1]);
+                if (lineValArray.length > 3) {
+                    checkNot = isThereNot(lineValArray[NOT_INDEX + 1]);
+                }
                 return new BetweenFilter(numVal, secondNumVal, checkNot);
             case NAME_SMALLER_THAN:
                 if (!isValidNam()) {
                     return null;
                 }
                 numVal = Double.parseDouble(lineValArray[FILTER_PARAM]);
-                checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                if (lineValArray.length > 2) {
+                    checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                }
                 return new SmallerThanFilter(numVal, checkNot);
             case NAME_FILE_FILTER:
-                checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                if (lineValArray.length > 2) {
+                    checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                }
                 return new filters.FileNameFilter(lineValArray[FILTER_PARAM], checkNot);
             case NAME_CONTAINS:
-                checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                if (lineValArray.length > 2) {
+                    checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                }
                 return new ContainsFilter(lineValArray[FILTER_PARAM], checkNot);
             case NAME_PREFIX:
-                checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                if (lineValArray.length > 2) {
+                    checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                }
                 return new PrefixFilter(lineValArray[FILTER_PARAM], checkNot);
             case NAME_SUFFIX:
-                checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                if (lineValArray.length > 2) {
+                    checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                }
                 return new SuffixFilter(lineValArray[FILTER_PARAM], checkNot);
             case NAME_WRITABLE:
                 if (!isYesOrNoVal()) {
                     return null;
                 }
                 yesOrNo = checkYesOrNo();
-                checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                if (lineValArray.length > 2) {
+                    checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                }
                 return new WritableFilter((yesOrNo && !checkNot));
             case NAME_EXECUTABLE:
                 if (!isYesOrNoVal()) {
                     return null;
                 }
                 yesOrNo = checkYesOrNo();
-                checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                if (lineValArray.length > 2) {
+                    checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                }
                 return new ExecutableFilter((yesOrNo && !checkNot));
             case NAME_HIDDEN:
                 if (!isYesOrNoVal()) {
                     return null;
                 }
                 yesOrNo = checkYesOrNo();
-                checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                if (lineValArray.length > 2) {
+                    checkNot = isThereNot(lineValArray[NOT_INDEX]);
+                }
                 return new HiddenFilter((yesOrNo && !checkNot));
             case NAME_ALL:
                 // the all filter get NOT at the 1 index
-                checkNot = isThereNot(lineValArray[NOT_INDEX - 1]);
+
+
+                if (lineValArray.length > 1) {
+                    checkNot = isThereNot(lineValArray[NOT_INDEX - 1]);
+                }
+
                 return new AllFilter(checkNot);
             default:
                 throw new ExceptionNoSuchFilter(filterName);
@@ -142,6 +168,7 @@ public class FilterFactory {
     private boolean isThereNot(String check) {
         return check.equals(NOT_SIGN);
     }
+
     /*
     Assuming that the given param in the filter line is "YES" or "NO".
     if there is "YES" return true if there is "NOT' return False

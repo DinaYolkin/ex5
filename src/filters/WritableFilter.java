@@ -3,6 +3,8 @@ package filters;
 import java.io.File;
 
 public class WritableFilter extends Filter {
+	// TODO: delete
+	public String filterName = "writable";
 	private boolean isNot;
 
 	/**
@@ -19,5 +21,10 @@ public class WritableFilter extends Filter {
 			return !file.canWrite();
 		}
 		return file.canWrite();
+	}
+
+	//TODO delete
+	public String getName() {
+		return this.filterName;
 	}
 }
