@@ -13,10 +13,17 @@ public class OrderFactory {
     public Order getOrder(String orderLine) throws OrderExceptions {
         orderLineArray = orderLine.split("#");
         String orderName = orderLineArray[ORDER_NAME_INDEX];
-        boolean isReverse = checkIfReverse();
+        // check if there is REVERSE indication, if there something else return null (type 1 error)
+        boolean isReverse = false;
+		if(orderLineArray.length > 1){
+			isReverse = checkIfReverse();
+			if (!isReverse){
+				return null;
+			}
+		}
         switch (orderName) {
             case NAME_ABS:
-                return new AbsOrder(isReverse);
+				return new AbsOrder(isReverse);
             case NAME_TYPE:
                 return new TypeOrder(isReverse);
             case NAME_SIZE:
@@ -28,6 +35,6 @@ public class OrderFactory {
     }
 
     private boolean checkIfReverse() {
-        return orderLineArray.length > 1 && orderLineArray[REVERSE_INDEX].equals("REVERSE");
+        return orderLineArray[REVERSE_INDEX].equals("REVERSE");
     }
 }

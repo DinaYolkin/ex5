@@ -40,19 +40,21 @@ public class CommandReader {
 				Section section;
 				ArrayList<Integer> warningsLines = new ArrayList<>();
 				// filter handling
-				if (!line.equals(FILTER_INDICATOR)) {
+				if (isOrderLine && !line.equals(FILTER_INDICATOR)) {
 					//TODO if this is the way?
 					throw new SectionException(ERROR_NO_FILTER_LINE);
 				}
 				line = readFile.readLine();
 				numLine++;
+				// set back the isOrderLine to true
+				isOrderLine = true;
 
 				Filter filter;
 				try {
 					filter = filterFactory.getFilter(line);
 				} catch (ExceptionNoSuchFilter e) {
-					// catch type 2 exceptions
-					throw e;
+					// catch type 1 exceptions
+					filter = null;
 				}
 				// if filter is null means we have type 1 error
 				if (filter == null) {
@@ -86,9 +88,10 @@ public class CommandReader {
 					try {
 						order = orderFactory.getOrder(line);
 					} catch (ExceptionNoSuchOrder e) {
-						throw e;
+						order = null;
 					}
 				}
+
 				if (order == null) {
 					warningsLines.add(numLine);
 					order = orderFactory.getOrder(DEFAULT_ORDER);

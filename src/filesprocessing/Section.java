@@ -2,6 +2,7 @@ package filesprocessing;
 
 import filters.Filter;
 import orders.Order;
+import orders.TypeOrder;
 
 import java.io.File;
 
@@ -38,13 +39,15 @@ public class Section {
 		}
 
 		ArrayList<File> filteredFiles = new ArrayList<>();
-		files.sort(getOrder());
 
 		for (File file : files) {
 			if (filter.passedFilter(file)) {
 				filteredFiles.add(file);
 			}
 		}
+
+
+		filteredFiles.sort(getOrder());
 
 		for (File file : filteredFiles) {
 			System.out.println(file.getName());
@@ -57,6 +60,4 @@ public class Section {
 	public Comparator<File> getOrder() {
 		return order;
 	}
-
-
 }

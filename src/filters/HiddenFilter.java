@@ -7,24 +7,25 @@ import java.io.File;
  */
 public class HiddenFilter extends Filter {
 	public String filterName = "hidden";
-	private boolean isNot;
+	private boolean isHidden;
 
 	/**
-	 * @param isNot indicates if the filter is negated.
+	 * @param isHidden indicates if the filter is negated.
 	 */
-	HiddenFilter(boolean isNot) {
-		this.isNot = isNot;
+	HiddenFilter(boolean isHidden) {
+		this.isHidden = isHidden;
 	}
 
 	@Override
 	public boolean passedFilter(File file) {
-		if (isNot) {
-			return !file.isHidden();
+		if (isHidden) {
+			return file.isHidden();
 		}
-		return file.isHidden();
+		return !file.isHidden();
 	}
+
 	//TODO delete
-	public String getName(){
+	public String getName() {
 		return this.filterName;
 	}
 }

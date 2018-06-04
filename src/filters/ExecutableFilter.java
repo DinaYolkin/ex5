@@ -7,23 +7,23 @@ import java.io.File;
  */
 public class ExecutableFilter extends Filter {
 	public String filterName = "executable";
-	private boolean isNot;
+	private boolean isExe;
 
 	/**
 	 * Creates a class that
 	 *
-	 * @param isNot indicates if the filter is negated.
+	 * @param isExe indicates if the filter is negated.
 	 */
-	ExecutableFilter(boolean isNot) {
-		this.isNot = isNot;
+	ExecutableFilter(boolean isExe) {
+		this.isExe = isExe;
 	}
 
 	@Override
 	public boolean passedFilter(File file) {
-		if (isNot) {
-			return !file.canExecute();
+		if (isExe) {
+			return file.canExecute();
 		}
-		return file.canExecute();
+		return !file.canExecute();
 	}
 	//TODO delete
 	public String getName(){

@@ -28,15 +28,15 @@ public class TypeOrder extends Order {
 
 		if (isReversed) {
 			comparison = parsedFile2Name[SUFFIX_INDEX].compareTo(parsedFile1Name[SUFFIX_INDEX]);
-			if (comparison == EQUAL) {
-				return absOrderComparator.compare(file1, file2);
-			}
 		}
-		comparison = parsedFile1Name[SUFFIX_INDEX].compareTo(parsedFile2Name[SUFFIX_INDEX]);
+		else {
+			comparison = parsedFile1Name[SUFFIX_INDEX].compareTo(parsedFile2Name[SUFFIX_INDEX]);
+		}
 
 		if (comparison == EQUAL) {
 			return absOrderComparator.compare(file1, file2);
 		}
+
 		return comparison;
 	}
 

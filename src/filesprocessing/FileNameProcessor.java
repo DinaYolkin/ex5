@@ -2,8 +2,9 @@ package filesprocessing;
 
 public class FileNameProcessor {
 	private static final String DOT_SPLIT = "\\.";
-	final static int FILE_NAME_INDEX = 0;
-	final static int SUFFIX_INDEX = 1;
+	private final static int FILE_NAME_INDEX = 0;
+	private final static int SUFFIX_INDEX = 1;
+	public static final int NO_OCCURRANCE = -1;
 
 
 	/**
@@ -14,7 +15,10 @@ public class FileNameProcessor {
 
 		String[] parsedFileName = {"", ""};
 		String[] splitFileName;
-
+		if (!fileName.contains(DOT_SPLIT)) {
+			parsedFileName[FILE_NAME_INDEX] = fileName;
+			parsedFileName[SUFFIX_INDEX] = "";
+		}
 		if (fileName.lastIndexOf(DOT_SPLIT) == 0) {
 			splitFileName = fileName.split(DOT_SPLIT);  // exclude dots.
 			parsedFileName[FILE_NAME_INDEX] = "";
@@ -39,13 +43,13 @@ public class FileNameProcessor {
 			if (i == splitFileName.length - 1) {
 				parsedFileName[SUFFIX_INDEX] = splitFileName[i];
 				return parsedFileName;
+
 			} else if (i == splitFileName.length - 2) {
 				parsedFileName[FILE_NAME_INDEX] += splitFileName[i];
 			} else {
 				parsedFileName[FILE_NAME_INDEX] += splitFileName[i] + ".";
 			}
 		}
-		System.out.println(parsedFileName[FILE_NAME_INDEX]);
 		return splitFileName;
 	}
 }

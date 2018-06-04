@@ -5,22 +5,22 @@ import java.io.File;
 public class WritableFilter extends Filter {
 	// TODO: delete
 	public String filterName = "writable";
-	private boolean isNot;
+	private boolean isWritable;
 
 	/**
-	 * @param isNot indicates if the filter is negated.
+	 * @param isWritable indicates if the filter is negated.
 	 */
-	WritableFilter(boolean isNot) {
-		this.isNot = isNot;
+	WritableFilter(boolean isWritable) {
+		this.isWritable = isWritable;
 	}
 
 	@Override
 	public boolean passedFilter(File file) {
 
-		if (isNot) {
-			return !file.canWrite();
+		if (isWritable) {
+			return file.canWrite();
 		}
-		return file.canWrite();
+		return !file.canWrite();
 	}
 
 	//TODO delete

@@ -7,7 +7,6 @@ import java.io.File;
  */
 public class AllFilter extends Filter {
 
-
 	public String filterName = "all";
 	private boolean isNot;
 
@@ -23,7 +22,6 @@ public class AllFilter extends Filter {
 	@Override
 	public boolean passedFilter(File file) {
 		return !isNot;
-
 	}
 
 	//TODO delete

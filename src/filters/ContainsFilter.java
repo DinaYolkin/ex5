@@ -31,7 +31,7 @@ public class ContainsFilter extends Filter {
 	}
 
 	//TODO delete
-	public String getName(){
+	public String getName() {
 		return this.filterName;
 	}
 

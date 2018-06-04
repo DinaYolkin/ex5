@@ -31,12 +31,13 @@ public class BetweenFilter extends Filter {
 	public boolean passedFilter(File file) {
 		double fileSize = ((double) file.length()) / BYTES_TO_K_BYTES;
 		if (isNot) {
-			return (fileSize < lowerBound && fileSize > upperBound);
+			return (fileSize < lowerBound || fileSize > upperBound);
 		}
 		return (fileSize >= lowerBound && fileSize <= upperBound);
 	}
+
 	//TODO delete
-	public String getName(){
+	public String getName() {
 		return this.filterName;
 	}
 }
