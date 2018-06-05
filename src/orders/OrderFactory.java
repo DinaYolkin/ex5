@@ -18,7 +18,7 @@ public class OrderFactory {
 		if(orderLineArray.length > 1){
 			isReverse = checkIfReverse();
 			if (!isReverse){
-				return null;
+				throw new OrderExceptions();
 			}
 		}
         switch (orderName) {

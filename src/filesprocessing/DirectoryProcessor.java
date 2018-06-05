@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 
 public class DirectoryProcessor {
-	private final static int ERROR_EXIT_CODE = -1;
 	private final static int NUMBER_OF_ARGS = 2;
 	private final static int SOURCE_DIR_INDEX = 0;
 	private final static int COMMAND_FILE_INDEX = 1;
@@ -28,7 +27,6 @@ public class DirectoryProcessor {
 			File directory = new File(sourceDir);
 			File[] files = directory.listFiles();
 
-
 			if (files == null) {
 				throw new IOException();
 			}
@@ -37,6 +35,7 @@ public class DirectoryProcessor {
 
 			for (File file : files) {
 				if (file.isFile()) {
+
 					allFiles.add(file);
 				}
 			}
@@ -49,9 +48,9 @@ public class DirectoryProcessor {
 				section.printAllFilteredFilesByOrder(allFiles);
 			}
 
-		} catch (SectionException | FilterExceptions | OrderExceptions e) {
+		} catch (SectionException | FilterExceptions | OrderExceptions |IOException e) {
 			System.err.println(e.getMessage());
-			System.exit(ERROR_EXIT_CODE);
+
 		}
 
 

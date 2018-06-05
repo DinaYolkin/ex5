@@ -7,9 +7,7 @@ import java.io.File;
  */
 public abstract class Filter {
 	final int BYTES_TO_K_BYTES = 1024;
-	private final String DOT_SPLIT = "\\.";
 	final int FILE_NAME_INDEX = 0;
-	final int SUFFIX_INDEX = 1;
 
 
 	/**

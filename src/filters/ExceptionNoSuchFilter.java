@@ -6,6 +6,5 @@ public class ExceptionNoSuchFilter extends FilterExceptions {
 
 	ExceptionNoSuchFilter(String filterName) {
 		super(MSG_NO_SUCH_FILTER_NAME + filterName);
-
 	}
 }

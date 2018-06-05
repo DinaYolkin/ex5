@@ -15,6 +15,7 @@ public class FileNameProcessor {
 
 		String[] parsedFileName = {"", ""};
 		String[] splitFileName;
+
 		if (!fileName.contains(DOT_SPLIT)) {
 			parsedFileName[FILE_NAME_INDEX] = fileName;
 			parsedFileName[SUFFIX_INDEX] = "";

@@ -2,7 +2,7 @@ package filesprocessing;
 
 import filters.Filter;
 import orders.Order;
-import orders.TypeOrder;
+
 
 import java.io.File;
 
@@ -23,7 +23,7 @@ public class Section {
 	 * @param order         The order object of this section
 	 * @param warningsLines An array that contains the lines in which warning occurred.
 	 */
-	public Section(Filter filter, Order order, ArrayList<Integer> warningsLines) {
+	Section(Filter filter, Order order, ArrayList<Integer> warningsLines) {
 		this.filter = filter;
 		this.order = order;
 		this.warningsLines = warningsLines;
@@ -32,7 +32,7 @@ public class Section {
 	/**
 	 * @param files the files we want to filter and print.
 	 */
-	public void printAllFilteredFilesByOrder(ArrayList<File> files) {
+	void printAllFilteredFilesByOrder(ArrayList<File> files) {
 
 		for (Integer line : warningsLines) {
 			System.err.println("Warning in line " + line);
@@ -45,7 +45,6 @@ public class Section {
 				filteredFiles.add(file);
 			}
 		}
-
 
 		filteredFiles.sort(getOrder());
 

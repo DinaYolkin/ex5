@@ -24,14 +24,10 @@ public class FileNameFilter extends Filter {
 	@Override
 	public boolean passedFilter(File file) {
 		String fileName = file.getName();
-//		String[] parsedFileName = FileNameProcessor.parseFileName(fileName);
 		if (isNot) {
 			return !filterValue.equals(fileName);
-
-//			return !filterValue.equals(parsedFileName[FILE_NAME_INDEX]);
 		}
 		return filterValue.equals(fileName);
-//		return filterValue.equals(parsedFileName[FILE_NAME_INDEX]);
 	}
 
 	//TODO delete
