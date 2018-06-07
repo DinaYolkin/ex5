@@ -9,13 +9,12 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 
-
 public class DirectoryProcessor {
 	private final static int NUMBER_OF_ARGS = 2;
 	private final static int SOURCE_DIR_INDEX = 0;
 	private final static int COMMAND_FILE_INDEX = 1;
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		try {
 			if (args.length != NUMBER_OF_ARGS) {
@@ -35,11 +34,9 @@ public class DirectoryProcessor {
 
 			for (File file : files) {
 				if (file.isFile()) {
-
 					allFiles.add(file);
 				}
 			}
-
 			CommandReader commandReader = new CommandReader(commandFile);
 
 			ArrayList<Section> sections = commandReader.readFile();
@@ -48,12 +45,8 @@ public class DirectoryProcessor {
 				section.printAllFilteredFilesByOrder(allFiles);
 			}
 
-		} catch (SectionException | FilterExceptions | OrderExceptions |IOException e) {
+		} catch (SectionException | FilterExceptions | OrderExceptions | IOException e) {
 			System.err.println(e.getMessage());
-
 		}
-
-
 	}
-
 }
