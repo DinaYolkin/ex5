@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 
- class CommandReader {
+class CommandReader {
 
 	private static final String ERROR_NO_FILTER_LINE = "ERROR: no FILTER line";
 	private static final String ERROR_NO_ORDER_LINE = "ERROR: no ORDER line";
@@ -17,8 +17,7 @@ import java.util.ArrayList;
 	private static final String DEFAULT_FILTER = "all";
 	private static final String FILTER_INDICATOR = "FILTER";
 	private static final String ORDER_INDICATOR = "ORDER";
-	private static final String ERROR_IOEXCEPTION = "ERROR: IOException";
-
+	private static final String ERROR_IO_EXCEPTION = "ERROR: IOException";
 
 
 	private String fileAddress;
@@ -101,10 +100,9 @@ import java.util.ArrayList;
 					numLine++;
 				}
 				sectionList.add(section);
-
 			}
 		} catch (IOException e) {
-			throw new SectionException(ERROR_IOEXCEPTION);
+			throw new SectionException(ERROR_IO_EXCEPTION);
 		}
 
 		return sectionList;
